@@ -28,6 +28,36 @@ def sum(nums, target):
                     r -= 1
 
     return quads
+#After Function is defined.. U can use it in the main func like this :
+
+int main() {
+    int nums[] = {1, 0, -1, 0, -2, 2};
+    int numsSize = 6;
+    int target = 0;
+    int returnSize;
+    int* returnColumnSizes;
+
+    int** result = fourSum(nums, numsSize, target, &returnSize, &returnColumnSizes);
+    for (int i = 0; i < returnSize; i++) {
+        printf("[");
+        for (int j = 0; j < 4; j++) {
+            printf("%d", result[i][j]);
+            if (j < 3) {
+                printf(", ");
+            }
+        }
+        printf("]\n");
+    }
+    for (int i = 0; i < returnSize; i++) {
+        free(result[i]);
+    }
+    free(result);
+    free(returnColumnSizes);
+
+    return 0;
+}
+
+
 
 #------------------------------------------------------------------------------------------------------
 #Second Task
@@ -43,3 +73,6 @@ def lengthOfLastWord(s):
         length += 1
 
     return length
+##Heres how u can use the function : call it like this  :
+##s1 = "Hello World"
+##print(lengthOfLastWord(s1))
